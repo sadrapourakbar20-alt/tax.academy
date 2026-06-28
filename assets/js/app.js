@@ -86,3 +86,4 @@ menuToggle.addEventListener("click", () => {
     nav.classList.toggle("active");
 
 });
+console.log("Tax Academy Loaded");
