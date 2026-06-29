@@ -1,0 +1,23 @@
+/* =========================
+   Tax Academy Theme
+========================= */
+
+:root{
+
+    --primary:#1565C0;
+    --secondary:#0D47A1;
+
+    --gold:#FBC02D;
+    --gold-light:#FFD54F;
+
+    --background:#F5F7FA;
+    --white:#FFFFFF;
+    --text:#212121;
+    --gray:#757575;
+    --border:#E5E7EB;
+
+    --shadow:0 15px 40px rgba(0,0,0,.08);
+    --radius:15px;
+    --transition:.35s ease;
+
+}

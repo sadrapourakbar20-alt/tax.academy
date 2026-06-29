@@ -9,23 +9,7 @@
     box-sizing:border-box;
 }
 
-:root{
 
-    --primary:#0F172A;
-    --secondary:#1E3A8A;
-    --gold:#F59E0B;
-    --light:#F8FAFC;
-    --gray:#64748B;
-    --dark:#111827;
-    --white:#ffffff;
-
-    --shadow:0 15px 40px rgba(0,0,0,.08);
-
-    --radius:15px;
-
-    --transition:.35s;
-
-}
 
 html{
 
@@ -37,9 +21,9 @@ body{
 
     font-family:'Vazirmatn',sans-serif;
 
-    background:#F5F7FA;
+    background:var(--background);
 
-    color:var(--dark);
+    color:var(--text);
 
     line-height:1.9;
 
@@ -200,12 +184,15 @@ nav a:hover{
 }
 
 /* ================= Hero ================= */
-
 .hero{
 
-    background:linear-gradient(135deg,#0F172A,#1E3A8A);
+    background:linear-gradient(
+        135deg,
+        var(--primary),
+        var(--secondary)
+    );
 
-    color:white;
+    color:var(--white);
 
     min-height:92vh;
 
@@ -991,55 +978,57 @@ footer{
 /* ================= Mobile Menu ================= */
 
 .menu-toggle{
-
     display:none;
-
     font-size:28px;
-
     cursor:pointer;
-
     color:var(--primary);
-
 }
 
-@media(max-width:992px){
+@media (max-width:992px){
 
-.menu-toggle{
+    header .container{
+        flex-wrap:wrap;
+        height:auto;
+        padding:20px 0;
+    }
 
-    display:block;
+    .menu-toggle{
+        display:block;
+    }
 
-}
+    nav{
+        display:none;
+        width:100%;
+    }
 
-nav{
+    nav.active{
+        display:block;
+        margin-top:20px;
+    }
 
-    display:none;
+    nav ul{
+        display:flex;
+        flex-direction:column;
+        gap:20px;
+        text-align:center;
+    }
 
-    width:100%;
+    .header-buttons{
+        display:none;
+    }
 
-}
+    nav.active .header-buttons{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        gap:15px;
+        margin-top:25px;
+    }
 
-nav.active{
-
-    display:block;
-
-    margin-top:20px;
-
-}
-
-nav ul{
-
-    flex-direction:column;
-
-    text-align:center;
-
-    gap:20px;
-git branch -M main
-}
-
-.header-buttons{
-
-    display:none;
-
-}
+    .login-btn,
+    .register-btn{
+        width:180px;
+        text-align:center;
+    }
 
 }

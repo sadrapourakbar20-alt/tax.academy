@@ -22,7 +22,9 @@
         rel="stylesheet">
 
     <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet" href="assets/css/variables.css">
 
     <link rel="stylesheet" href="assets/css/style.css">
 
@@ -50,43 +52,35 @@
 
             </div>
 
-            <nav>
+           <div class="menu-toggle">
+    <i class="fa-solid fa-bars"></i>
+</div>
 
-                <ul>
+<nav>
 
-                    <li><a href="#">خانه</a></li>
+    <ul>
 
-                    <li><a href="courses.html">دوره ها</a></li>
+        <li><a href="#">خانه</a></li>
+        <li><a href="courses.html">دوره ها</a></li>
+        <li><a href="#">وبلاگ</a></li>
+        <li><a href="about.html">درباره ما</a></li>
+        <li><a href="contact.html">تماس با ما</a></li>
 
-                    <li><a href="#">وبلاگ</a></li>
+    </ul>
 
-                    <li><a href="about.html">درباره ما</a></li>
+    <div class="header-buttons">
 
-                    <li><a href="contact.html">تماس با ما</a></li>
+        <a href="login.html" class="login-btn">ورود</a>
 
-                </ul>
+        <a href="register.html" class="register-btn">ثبت نام</a>
 
-            </nav>
+    </div>
+
+</nav>
 
             <div class="menu-toggle">
     <i class="fa-solid fa-bars"></i>
 </div>
-
-            <div class="header-buttons">
-
-                <a href="login.html" class="login-btn">
-
-                    ورود
-
-                </a>
-
-                <a href="register.html" class="register-btn">
-
-                    ثبت نام
-
-                </a>
-
-            </div>
 
         </div>
 
@@ -650,7 +644,7 @@
 
                     ایمیل:
 
-                    info@taxacademy.ir
+                    sadrapourakbar20@gmail.com
 
                 </p>
 
@@ -658,7 +652,7 @@
 
                     تلفن:
 
-                    021-00000000
+                    09377508550
 
                 </p>
 
@@ -681,79 +675,3 @@
 </body>
 
 </html>
-/* ================= Back To Top ================= */
-
-#backToTop{
-
-    position:fixed;
-
-    left:30px;
-
-    bottom:30px;
-
-    width:55px;
-
-    height:55px;
-
-    border:none;
-
-    border-radius:50%;
-
-    background:var(--gold);
-
-    color:#111;
-
-    font-size:20px;
-
-    cursor:pointer;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    box-shadow:0 10px 30px rgba(0,0,0,.2);
-
-    opacity:0;
-
-    visibility:hidden;
-
-    transition:.3s;
-
-    z-index:9999;
-
-}
-
-#backToTop.show{
-
-    opacity:1;
-
-    visibility:visible;
-
-}
-
-#backToTop:hover{
-
-    transform:translateY(-5px);
-
-}
-/* ================= Header Scroll ================= */
-
-header.scrolled{
-
-    background:rgba(255,255,255,.97);
-
-    backdrop-filter:blur(12px);
-
-    box-shadow:0 10px 35px rgba(0,0,0,.12);
-
-}
-
-header.scrolled .container{
-
-    height:75px;
-
-    transition:.3s;
-
-}
