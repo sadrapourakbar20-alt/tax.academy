@@ -87,3 +87,87 @@ menuToggle.addEventListener("click", () => {
 
 });
 console.log("Tax Academy Loaded");
+// ================================
+// Back To Top
+// ================================
+
+const backToTop = document.getElementById("backToTop");
+
+window.addEventListener("scroll", () => {
+
+    if(window.scrollY > 300){
+
+        backToTop.style.display = "flex";
+
+    }else{
+
+        backToTop.style.display = "none";
+
+    }
+
+});
+
+backToTop.addEventListener("click", () => {
+
+    window.scrollTo({
+
+        top:0,
+
+        behavior:"smooth"
+
+    });
+
+});
+// ================================
+// Statistics Counter
+// ================================
+
+const counters = document.querySelectorAll(".counter");
+
+const runCounter = () => {
+
+    counters.forEach(counter => {
+
+        const target = +counter.dataset.target;
+
+        const update = () => {
+
+            const current = +counter.innerText;
+
+            const increment = target / 100;
+
+            if(current < target){
+
+                counter.innerText = Math.ceil(current + increment);
+
+                setTimeout(update,20);
+
+            }else{
+
+                counter.innerText = target;
+
+            }
+
+        };
+
+        update();
+
+    });
+
+};
+
+const statsSection = document.querySelector(".stats");
+
+const statsObserver = new IntersectionObserver(entries => {
+
+    if(entries[0].isIntersecting){
+
+        runCounter();
+
+        statsObserver.disconnect();
+
+    }
+
+});
+
+statsObserver.observe(statsSection);
