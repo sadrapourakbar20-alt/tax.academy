@@ -87,87 +87,95 @@ menuToggle.addEventListener("click", () => {
 
 });
 console.log("Tax Academy Loaded");
+
+
+// ================================
+// Statistics Counter
+// ================================
+
+const counters = document.querySelectorAll(".counter");
+const statsSection = document.querySelector(".stats");
+
+if (statsSection && counters.length > 0) {
+
+    const runCounter = () => {
+
+        counters.forEach(counter => {
+
+            const target = +counter.dataset.target;
+
+            const update = () => {
+
+                const current = +counter.innerText;
+                const increment = target / 100;
+
+                if (current < target) {
+
+                    counter.innerText = Math.ceil(current + increment);
+
+                    setTimeout(update, 20);
+
+                } else {
+
+                    counter.innerText = target;
+
+                }
+
+            };
+
+            update();
+
+        });
+
+    };
+
+    const statsObserver = new IntersectionObserver(entries => {
+
+        if (entries[0].isIntersecting) {
+
+            runCounter();
+
+            statsObserver.disconnect();
+
+        }
+
+    });
+
+    statsObserver.observe(statsSection);
+
+}
 // ================================
 // Back To Top
 // ================================
 
 const backToTop = document.getElementById("backToTop");
 
-window.addEventListener("scroll", () => {
+if (backToTop) {
 
-    if(window.scrollY > 300){
+    window.addEventListener("scroll", () => {
 
-        backToTop.style.display = "flex";
+        if (window.scrollY > 300) {
 
-    }else{
+            backToTop.style.display = "flex";
 
-        backToTop.style.display = "none";
+        } else {
 
-    }
+            backToTop.style.display = "none";
 
-});
-
-backToTop.addEventListener("click", () => {
-
-    window.scrollTo({
-
-        top:0,
-
-        behavior:"smooth"
+        }
 
     });
 
-});
-// ================================
-// Statistics Counter
-// ================================
+    backToTop.addEventListener("click", () => {
 
-const counters = document.querySelectorAll(".counter");
+        window.scrollTo({
 
-const runCounter = () => {
+            top: 0,
 
-    counters.forEach(counter => {
+            behavior: "smooth"
 
-        const target = +counter.dataset.target;
-
-        const update = () => {
-
-            const current = +counter.innerText;
-
-            const increment = target / 100;
-
-            if(current < target){
-
-                counter.innerText = Math.ceil(current + increment);
-
-                setTimeout(update,20);
-
-            }else{
-
-                counter.innerText = target;
-
-            }
-
-        };
-
-        update();
+        });
 
     });
 
-};
-
-const statsSection = document.querySelector(".stats");
-
-const statsObserver = new IntersectionObserver(entries => {
-
-    if(entries[0].isIntersecting){
-
-        runCounter();
-
-        statsObserver.disconnect();
-
-    }
-
-});
-
-statsObserver.observe(statsSection);
+}
